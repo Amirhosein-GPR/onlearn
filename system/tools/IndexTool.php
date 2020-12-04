@@ -7,7 +7,7 @@ class IndexTool
     private $action;
     private $params;
 
-    public static function getInstance()
+    public static function getInstance() : IndexTool
     {
         if (self::$instance == null)
         {
@@ -22,9 +22,10 @@ class IndexTool
         $requestUri = $_SERVER["REQUEST_URI"];
         if (isset($requestUri))
         {
-            if (strpos($requestUri, '/') !== 0)
+            if (strpos($requestUri, '/') !== false)
             {
-                $requestUri = array_shift(explode('/', $requestUri));
+                $requestUri = explode('/', $requestUri);
+                array_shift($requestUri);
                 $paramsCount = count($requestUri);
 
                 if ($paramsCount > 1)
@@ -63,18 +64,15 @@ class IndexTool
             $this->action = "show";
         }
     }
-    public function getController()
-    {
-        return $this->controller;
-    }
 
-    public function getAction()
+    public function initialize()
     {
-        return $this->action;
-    }
+        $action = $this->action;
+        $this->controller = ucfirst($this->controller) . "Controller";
 
-    public function getParams()
-    {
-        return $this->params;
+        require_once "controller/" . $this->controller . ".php";
+        echo $this->controller;        
+        $this->controller = $this->controller::getInstance();
+        $this->controller->$action($this->params);
     }
 }
