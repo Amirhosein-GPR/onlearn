@@ -1,6 +1,3 @@
 <?php
 
-require_once "system/tools/IndexTool.php";
-
-$indexTool = IndexTool::getInstance();
-$indexTool->initialize();
+require_once "system/Loader.php";

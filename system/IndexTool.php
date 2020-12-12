@@ -3,8 +3,7 @@
 class IndexTool
 {
     private static $instance;
-    private $controller;
-    private $action;
+    private $route;
     private $params;
 
     public static function getInstance() : IndexTool
@@ -30,13 +29,19 @@ class IndexTool
 
                 if ($paramsCount > 1)
                 {
-                    $this->controller = $requestUri[0];
-                    $this->action = $requestUri[1];
+                    $this->route = $requestUri[0] . '/' . $requestUri[1];
                 }
                 else
                 {
-                    $this->controller = "home";
-                    $this->action = "show";
+                    if ($requestUri[0] == "home" || $requestUri[0] == "")
+                    {
+                        $this->route = "home/show";                        
+                    }
+                    else
+                    {
+                        $this->route = "error/show";
+                        $this->params = array(404);
+                    }
                 }
 
                 if ($paramsCount > 2)
@@ -51,28 +56,20 @@ class IndexTool
                     $this->params = NULL;
                 }
             }
-            else
-            {
-                $this->controller = "error";
-                $this->action = "show";
-                $this->params = array("404");
-            }
         }
         else
         {
-            $this->controller = "home";
-            $this->action = "show";
+            $this->route = "home/show";
         }
     }
 
-    public function initialize()
+    public function getRoute()
     {
-        $action = $this->action;
-        $this->controller = ucfirst($this->controller) . "Controller";
-
-        require_once "controller/" . $this->controller . ".php";
-        echo $this->controller;        
-        $this->controller = $this->controller::getInstance();
-        $this->controller->$action($this->params);
+        return $this->route;
+    }
+    
+    public function getParams()
+    {
+        return $this->params;
     }
 }
