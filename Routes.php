@@ -2,12 +2,12 @@
 
 require_once "system/Route.php";
 
-Route::check("home/show", function()
+Route::check("main/home", function()
 {
     Home::view("main/Home");
 });
 
-Route::check("error/show", function()
+Route::check("report/error", function()
 {
     $indexTool = IndexTool::getInstance();
     if ($indexTool->getParams()[0] = 404)

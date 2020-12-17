@@ -3,6 +3,8 @@
 class IndexTool
 {
     private static $instance;
+    private $uppderCategory;
+    private $innerCategory;
     private $route;
     private $params;
 
@@ -29,17 +31,23 @@ class IndexTool
 
                 if ($paramsCount > 1)
                 {
+                    $this->uppderCategory = $requestUri[0];
+                    $this->innerCategory = $requestUri[1];
                     $this->route = $requestUri[0] . '/' . $requestUri[1];
                 }
                 else
                 {
-                    if ($requestUri[0] == "home" || $requestUri[0] == "")
+                    if ($requestUri[0] == "main" || $requestUri[0] == "")
                     {
-                        $this->route = "home/show";                        
+                        $this->uppderCategory = "main";
+                        $this->innerCategory = "home";
+                        $this->route = $this->uppderCategory . '/' . $this->innerCategory;
                     }
                     else
                     {
-                        $this->route = "error/show";
+                        $this->uppderCategory = "report";
+                        $this->innerCategory = "error";
+                        $this->route = $this->uppderCategory . '/' . $this->innerCategory;
                         $this->params = array(404);
                     }
                 }
@@ -59,8 +67,20 @@ class IndexTool
         }
         else
         {
-            $this->route = "home/show";
+            $this->uppderCategory = "main";
+            $this->innerCategory = "home";
+            $this->route = $this->uppderCategory . '/' . $this->innerCategory;
         }
+    }
+
+    public function getUpperCategory()
+    {
+        return $this->uppderCategory;
+    }
+
+    public function getInnerCategory()
+    {
+        return $this->innerCategory;
     }
 
     public function getRoute()

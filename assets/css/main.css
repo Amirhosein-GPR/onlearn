@@ -1,0 +1,197 @@
+@font-face
+{
+    font-family: Shabnam;
+    src: url('/assets/font/Shabnam-FD.ttf'),
+    url('/assets/font/Shabnam-FD.woff'),
+    url('/assets/font/Shabnam-FD.woff2');
+}
+
+*
+{
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-family: Shabnam;
+}
+
+html, body
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#main-layout
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#user-panel-container
+{
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 1% 1% 0 1%;
+    width: 98%;
+    flex: 1;
+}
+
+#user-panel
+{
+    background-color: #fff;
+    box-shadow: 0 0 6px 2px #bbb;
+    width: 25%;
+    height: 2.5rem;
+}
+
+#user-panel *
+{
+    float: right;
+}
+
+#user-panel object
+{
+    height: 100%;
+    padding: 0.5rem;
+}
+
+#user-panel object:nth-child(1)
+{
+    border-left: 0.1rem solid #333;
+}
+
+#user-panel object:nth-child(2)
+{
+    border-left: 0.1rem dashed #333;
+}
+
+#user-panel div:nth-child(3)
+{
+    height: 100%;
+    
+}
+
+#user-panel div:nth-child(3) span:nth-child(odd)
+{
+    padding-right: 0.5rem;
+}
+
+#user-panel div:nth-child(3) span
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-panel div:nth-child(3) span:nth-child(2)
+{
+    padding-left: 0.5rem;
+    border-left: 0.1rem dashed #333;
+}
+
+#header
+{
+    box-shadow: 0 0 6px 2px #bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 1% 0 1%;
+    width: 98%;
+    flex: 1;
+}
+
+#nav-bar
+{
+    box-shadow: 0 0 6px 2px #bbb;
+    text-align: center;
+    margin: 1% 1% 0 1%;
+    width: 98%;
+    flex: 1;
+}
+
+#main-content
+{
+    margin: 1% 1% 0 1%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 15;
+}
+
+#left-side-bar
+{
+    box-shadow: 0 0 6px 2px #bbb;
+    width: 24%;
+    text-align: center;
+}
+
+#article
+{
+    box-shadow: 0 0 6px 2px #bbb;
+    margin: 0 1%;
+    width: 50%;
+    text-align: center;
+}
+
+#right-side-bar
+{
+    box-shadow: 0 0 6px 2px #bbb;
+    width: 24%;
+    text-align: center;
+}
+
+#footer
+{
+    box-shadow: 0 0 6px 2px #bbb;
+    text-align: center;
+    margin: 1%;
+    width: 98%;
+    flex: 1;
+}
+
+.color-red
+{
+
+}
+
+.color-orange
+{
+
+}
+
+.color-yellow
+{
+    color: #ffae00;
+}
+
+.color-green
+{
+
+}
+
+.color-blue
+{
+    color: #00b7ff;
+}
+
+.color-dark-blue
+{
+
+}
+
+.color-purple
+{
+
+}
+
+.color-gray
+{
+
+}
