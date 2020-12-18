@@ -7,3 +7,4 @@
 <div id="right-side-bar">
     awd
 </div>
+<script src="/assets/js/main/home.js"></script>

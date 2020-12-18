@@ -35,7 +35,6 @@ html, body
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     margin: 1% 1% 0 1%;
     width: 98%;
     flex: 1;
@@ -45,7 +44,6 @@ html, body
 {
     background-color: #fff;
     box-shadow: 0 0 6px 2px #bbb;
-    width: 25%;
     height: 2.5rem;
 }
 
@@ -54,26 +52,121 @@ html, body
     float: right;
 }
 
-#user-panel object
+#user-panel > img
 {
     height: 100%;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
-#user-panel object:nth-child(1)
+#user-panel > img:nth-child(1)
 {
     border-left: 0.1rem solid #333;
 }
 
-#user-panel object:nth-child(2)
+#user-options-container
 {
-    border-left: 0.1rem dashed #333;
+    position: relative;
 }
 
-#user-panel div:nth-child(3)
+#user-options-container > img
 {
     height: 100%;
-    
+    padding: 0.5rem;
+    border-left: 0.1rem dashed #333;
+    cursor: pointer;
+}
+
+#user-options
+{
+    position: absolute;
+    top: 3.8rem;
+    left: -3.75rem;
+    background-color: #fff;
+    box-shadow: 0 0 6px 2px #bbb;
+    height: 10rem;
+    width: 10rem;
+    visibility: hidden;
+}
+
+#user-options img
+{
+    height: 1.7rem;
+    width: 1.7rem;
+}
+
+#user-options div:first-child
+{
+    position: absolute;
+    top: -1.38rem;
+    left: 4.4rem;
+}
+
+#user-options div:not(:first-child)
+{
+    background-color: #eee;
+    box-shadow: 0 0 6px 2px #bbb;
+    border: 0.1rem solid #888;
+    width: 4.25rem;
+    height: 4.25rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-options div:nth-child(2)
+{
+    margin: 0.5rem;
+}
+
+#user-options div:nth-child(2):hover
+{
+    background-color: #fad5b6;
+    border-color: #f57812;
+    box-shadow: 0 0 6px 2px #fad5b6;
+}
+
+#user-options div:nth-child(3)
+{
+    margin: 0.5rem 0 0.5rem 0.5rem;
+}
+
+#user-options div:nth-child(3):hover
+{
+    background-color: #d3c0b5;
+    border-color: #6d3007;
+    box-shadow: 0 0 6px 2px #d3c0b5;
+}
+
+#user-options div:nth-child(4)
+{
+    margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+#user-options div:nth-child(4):hover
+{
+    background-color: #b5dbeb;
+    border-color: #27b5ec;
+    box-shadow: 0 0 6px 2px #b5dbeb;
+}
+
+#user-options div:nth-child(5)
+{
+    margin: 0 0 0.5rem 0.5rem;
+}
+
+#user-options div:nth-child(5):hover
+{
+    background-color: #caddc3;
+    border-color: #266608;
+    box-shadow: 0 0 6px 2px #caddc3;
+}
+
+#user-panel > div
+{
+    height: 100%;
 }
 
 #user-panel div:nth-child(3) span:nth-child(odd)
@@ -81,7 +174,7 @@ html, body
     padding-right: 0.5rem;
 }
 
-#user-panel div:nth-child(3) span
+#user-panel > div:nth-child(3) span
 {
     height: 100%;
     display: flex;
@@ -89,10 +182,15 @@ html, body
     align-items: center;
 }
 
-#user-panel div:nth-child(3) span:nth-child(2)
+#user-panel > div:nth-child(3) span:nth-child(2)
 {
     padding-left: 0.5rem;
     border-left: 0.1rem dashed #333;
+}
+
+#user-panel > div:nth-child(3) span:last-child
+{
+    padding-left: 0.5rem;
 }
 
 #header
@@ -150,35 +248,47 @@ html, body
 #footer
 {
     box-shadow: 0 0 6px 2px #bbb;
-    text-align: center;
     margin: 1%;
     width: 98%;
     flex: 1;
 }
 
+#footer
+{
+    direction: rtl;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer span
+{
+    padding: 1rem;
+}
+
 .color-red
 {
-
+    background-color: #da2828;
 }
 
 .color-orange
 {
-
+    background-color: #f57812;
 }
 
 .color-yellow
 {
-    color: #ffae00;
+    background-color: #ffae00;
 }
 
 .color-green
 {
-
+    background-color: #266608;
 }
 
 .color-blue
 {
-    color: #00b7ff;
+    background-color: #27b5ec;
 }
 
 .color-dark-blue
@@ -191,7 +301,21 @@ html, body
 
 }
 
+.color-brown
+{
+    background-color: #6d3007;
+}
+
 .color-gray
 {
 
+}
+
+.triangle-up
+{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #eee;
 }
